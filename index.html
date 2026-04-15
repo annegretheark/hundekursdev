@@ -1,793 +1,269 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Valpekurs på Tyristrand | Trygg og tydelig hundetrening</title>
-  <meta name="description" content="Valpekurs på Tyristrand med fokus på ro, samarbeid og tydelig kommunikasjon. Små grupper med maks 4 deltakere. Adresse oppgis ved påmelding." />
-  <style>
-    :root {
-      --forest: #26463f;
-      --forest-dark: #1b342f;
-      --sage: #dfe8df;
-      --cream: #f8f4ed;
-      --sand: #ead7b7;
-      --gold: #d8a15b;
-      --gold-dark: #bf8742;
-      --clay: #c97f5d;
-      --text: #2e2b28;
-      --muted: #645d56;
-      --white: #ffffff;
-      --shadow: 0 14px 34px rgba(32, 38, 35, 0.10);
-      --radius: 24px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, #fffaf2 0%, var(--cream) 55%, #f2ede4 100%);
-      line-height: 1.65;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-      border-radius: 22px;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: min(1120px, 92%);
-      margin: 0 auto;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(10px);
-      background: rgba(27, 52, 47, 0.88);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      padding: 16px 0;
-    }
-
-    .logo {
-      color: var(--white);
-      font-weight: 700;
-      font-size: 1.15rem;
-      letter-spacing: 0.2px;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .nav-links a {
-      color: rgba(255,255,255,0.95);
-      padding: 10px 12px;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      background: rgba(255,255,255,0.12);
-    }
-
-    .hero {
-      min-height: 92vh;
-      display: flex;
-      align-items: center;
-      background:
-        linear-gradient(rgba(24, 38, 34, 0.42), rgba(24, 38, 34, 0.55)),
-        url("bilder/hero.jpg") center/cover no-repeat;
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0 0;
-      height: 140px;
-      background: linear-gradient(to top, rgba(248,244,237,1), rgba(248,244,237,0));
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 760px;
-      padding: 80px 0 100px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      background: rgba(255,255,255,0.14);
-      color: #fff8ef;
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-size: 0.92rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      border: 1px solid rgba(255,255,255,0.18);
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4.8rem);
-      line-height: 1.06;
-      margin: 0 0 18px;
-      text-shadow: 0 2px 18px rgba(0,0,0,0.18);
-    }
-
-    .hero p {
-      font-size: 1.12rem;
-      max-width: 680px;
-      color: rgba(255,255,255,0.96);
-      margin: 0 0 28px;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 0 0 30px;
-    }
-
-    .badge {
-      background: rgba(255,255,255,0.14);
-      color: #fffefb;
-      border: 1px solid rgba(255,255,255,0.16);
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 15px 24px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: 0.2s ease;
-      box-shadow: var(--shadow);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--gold), var(--clay));
-      color: #1f1d1a;
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.14);
-      color: var(--white);
-      border: 1px solid rgba(255,255,255,0.22);
-      box-shadow: none;
-    }
-
-    section {
-      padding: 84px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 46px;
-    }
-
-    .section-title h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--forest-dark);
-      margin: 0 0 12px;
-    }
-
-    .section-title p {
-      max-width: 760px;
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1.08fr 1fr;
-      gap: 34px;
-      align-items: center;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .card,
-    .info-box,
-    .contact-box,
-    .quote-box,
-    .small-banner,
-    .method-panel,
-    .method-card {
-      background: rgba(255,255,255,0.88);
-      border: 1px solid rgba(38, 70, 63, 0.08);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-    }
-
-    .card {
-      padding: 28px;
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      color: var(--forest);
-      font-size: 1.28rem;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .text-box h3 {
-      margin-top: 0;
-      color: var(--forest);
-      font-size: 1.7rem;
-    }
-
-    .text-box p {
-      color: var(--muted);
-      margin-bottom: 16px;
-      font-size: 1.03rem;
-    }
-
-    .info-box {
-      padding: 30px;
-      background: linear-gradient(180deg, #fffdf8 0%, #fff7ea 100%);
-    }
-
-    .info-box h3 {
-      margin-top: 0;
-      color: var(--forest);
-      font-size: 1.5rem;
-    }
-
-    .feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 18px 0 0;
-    }
-
-    .feature-list li {
-      padding-left: 24px;
-      position: relative;
-      margin-bottom: 12px;
-      color: var(--muted);
-    }
-
-    .feature-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      top: -1px;
-      font-size: 1.35rem;
-      color: var(--gold-dark);
-      line-height: 1;
-    }
-
-    .soft-section {
-      background:
-        linear-gradient(180deg, rgba(223,232,223,0.46) 0%, rgba(248,244,237,0.9) 100%);
-    }
-
-    .accent-section {
-      background:
-        linear-gradient(180deg, rgba(234,215,183,0.22) 0%, rgba(248,244,237,0.98) 100%);
-    }
-
-    .highlight {
-      display: inline-block;
-      background: linear-gradient(135deg, #f7e2be, #efc78d);
-      color: #43352a;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-
-    .small-banner {
-      margin-top: 28px;
-      padding: 22px 24px;
-      background: linear-gradient(135deg, #fff7e8, #f9e3bf);
-      color: #4d3c2d;
-      text-align: center;
-      font-weight: 700;
-      font-size: 1.05rem;
-    }
-
-    .method-layout {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    .method-panel {
-      padding: 34px;
-      background: linear-gradient(180deg, #fffefb 0%, #fff8ee 100%);
-    }
-
-    .method-panel h3 {
-      margin-top: 0;
-      color: var(--forest);
-      font-size: 1.8rem;
-    }
-
-    .method-panel p {
-      color: var(--muted);
-      margin-bottom: 16px;
-      font-size: 1.04rem;
-    }
-
-    .method-quote {
-      margin: 18px 0 26px;
-      padding: 24px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #2f564d, #3b6a5f);
-      color: var(--white);
-      font-size: 1.18rem;
-      text-align: center;
-      font-weight: 600;
-      line-height: 1.7;
-    }
-
-    .method-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .method-card {
-      padding: 24px;
-      background: rgba(255,255,255,0.94);
-    }
-
-    .method-card h4 {
-      margin: 0 0 14px;
-      color: var(--forest);
-      font-size: 1.18rem;
-    }
-
-    .method-card ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .method-card li {
-      position: relative;
-      padding-left: 22px;
-      margin-bottom: 10px;
-      color: var(--muted);
-    }
-
-    .method-card li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      top: -1px;
-      color: var(--clay);
-      font-size: 1.2rem;
-      line-height: 1;
-    }
-
-    .method-image {
-      margin-top: 26px;
-    }
-
-    .quote-box {
-      margin-top: 34px;
-      padding: 38px;
-      background: linear-gradient(135deg, var(--forest), #31584f);
-      color: var(--white);
-      text-align: center;
-      font-size: 1.22rem;
-      line-height: 1.75;
-    }
-
-    .contact-box {
-      max-width: 820px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 36px;
-      background: linear-gradient(180deg, #fffefb 0%, #fff7eb 100%);
-    }
-
-    .contact-box h3 {
-      margin-top: 0;
-      color: var(--forest);
-      font-size: 1.8rem;
-    }
-
-    .contact-box p {
-      margin: 10px 0;
-      color: var(--muted);
-      font-size: 1.03rem;
-    }
-
-    .small-note {
-      margin-top: 16px;
-      font-size: 0.96rem;
-      color: #7a7067;
-    }
-
-    footer {
-      background: var(--forest-dark);
-      color: rgba(255,255,255,0.9);
-      text-align: center;
-      padding: 28px 16px;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 960px) {
-      .grid-2,
-      .card-grid,
-      .method-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .hero {
-        min-height: 80vh;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero-content {
-        padding: 56px 0 90px;
-      }
-
-      .buttons .btn {
-        width: 100%;
-        text-align: center;
-      }
-
-      .nav-links {
-        gap: 6px;
-      }
-
-      .logo {
-        white-space: normal;
-      }
-
-      .method-panel,
-      .method-card,
-      .card,
-      .info-box,
-      .contact-box,
-      .quote-box {
-        padding: 24px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valpekurs Tyristrand</title>
+
+<style>
+:root {
+  --forest: #355248;
+  --forest-dark: #243a33;
+  --sage: #d7dfd2;
+  --moss: #a8b49d;
+  --cream: #f6f1e7;
+  --sand: #e8dcc8;
+  --earth: #b7794f;
+  --clay: #a8653f;
+  --oak: #7a5a3a;
+  --text: #2f2a26;
+  --muted: #6b6259;
+  --white: #ffffff;
+}
+
+body {
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(#fbf8f2, #f6f1e7);
+  color: var(--text);
+}
+
+/* NAV */
+header {
+  position:fixed;
+  width:100%;
+  background: linear-gradient(var(--forest-dark), var(--forest));
+  color:white;
+  padding:15px 0;
+}
+
+nav {
+  display:flex;
+  justify-content:center;
+  gap:25px;
+}
+
+nav a {
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* HERO */
+.hero {
+  height:90vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url("bilder/hero.jpg") center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+}
+
+.hero h1 {
+  font-size:48px;
+}
+
+.btn {
+  background: linear-gradient(#d0a15f, #b7794f);
+  padding:15px 25px;
+  border-radius:30px;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:20px;
+  color:#2b2119;
+  font-weight:bold;
+}
+
+/* SECTIONS */
+section {
+  padding:80px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+h2 {
+  text-align:center;
+  color:var(--forest-dark);
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  align-items:center;
+}
+
+img {
+  width:100%;
+  border-radius:20px;
+}
+
+/* CARDS */
+.card {
+  background:white;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* BANNER */
+.banner {
+  margin-top:30px;
+  padding:20px;
+  background: linear-gradient(#ead8b8, #d0a15f);
+  text-align:center;
+  border-radius:15px;
+  font-weight:bold;
+}
+
+/* METODE */
+.metode {
+  background:#f3ede3;
+  padding:30px;
+  border-radius:20px;
+}
+
+.metode h3 {
+  color:var(--forest);
+}
+
+.metode ul {
+  padding-left:20px;
+}
+
+/* QUOTE */
+.quote {
+  background: linear-gradient(var(--forest), var(--oak));
+  color:white;
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  font-size:20px;
+}
+
+/* FOOTER */
+footer {
+  background: linear-gradient(var(--forest-dark), var(--oak));
+  color:white;
+  text-align:center;
+  padding:30px;
+}
+
+/* MOBIL */
+@media(max-width:800px){
+  .grid {
+    grid-template-columns:1fr;
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <header>
-    <div class="container nav">
-      <div class="logo">Valpekurs på Tyristrand</div>
-      <nav class="nav-links">
-        <a href="#om">Om meg</a>
-        <a href="#kurs">Valpekurs</a>
-        <a href="#metode">Metoden min</a>
-        <a href="#videre">Videre kurs</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-    </div>
-  </header>
+<header>
+<nav>
+<a href="#om">Om meg</a>
+<a href="#kurs">Valpekurs</a>
+<a href="#metode">Metode</a>
+<a href="#kontakt">Kontakt</a>
+</nav>
+</header>
 
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="eyebrow">Rolig trening • tydelig kommunikasjon • små grupper</div>
-        <h1>Trygg og tydelig trening for valp og eier</h1>
-        <p>
-          På mine kurs bygger vi kontakt, ro og forståelse fra starten.
-          Vi bruker godbit i innlæringen, men målet er en hund som følger med på eier, ikke på godbiten.
-        </p>
+<section class="hero">
+<div>
+<h1>Trygg og tydelig trening</h1>
+<p>En hund som forstår – ikke en som må lokkes</p>
+<a href="#kontakt" class="btn">Meld interesse</a>
+</div>
+</section>
 
-        <div class="hero-badges">
-          <div class="badge">Maks 4 deltakere</div>
-          <div class="badge">Tyristrand</div>
-          <div class="badge">Adresse oppgis ved påmelding</div>
-        </div>
+<section id="om">
+<h2>Om meg</h2>
+<div class="grid">
+<div>
+<p>Bakgrunn fra Nordenstam Hundeskole og Hundskolan i Sollefteå.</p>
+<p>Har trent hund i nærmere 50 år.</p>
+<p>Utdannet innen tjenestehunder for politi og forsvar.</p>
+</div>
+<img src="bilder/ommeg.jpg">
+</div>
+</section>
 
-        <div class="buttons">
-          <a class="btn btn-primary" href="#kontakt">Meld interesse</a>
-          <a class="btn btn-secondary" href="#metode">Les om metoden</a>
-        </div>
-      </div>
-    </div>
-  </section>
+<section id="kurs">
+<h2>Valpekurs</h2>
 
-  <section id="om">
-    <div class="container">
-      <div class="section-title">
-        <h2>Om meg</h2>
-        <p>
-          Erfaring, ro og tydelighet i arbeidet med hund og eier.
-        </p>
-      </div>
+<div class="grid">
+<img src="bilder/valp.jpg">
+<div class="card">
+<ul>
+<li>Kontakt og samarbeid</li>
+<li>Ro og fokus</li>
+<li>Lære ja og nei</li>
+<li>Trygg innlæring</li>
+</ul>
+</div>
+</div>
 
-      <div class="grid-2">
-        <div class="text-box">
-          <span class="highlight">Nærmere 50 års erfaring</span>
-          <h3>Bakgrunn og erfaring</h3>
-          <p>
-            Jeg har bakgrunn fra Nordenstam Hundeskole og Hundskolan i Sollefteå,
-            og har trent hund i nærmere 50 år, både egne og andres.
-          </p>
-          <p>
-            I Sollefteå lærte jeg å trene ulike typer tjenestehunder for politi og forsvar.
-            Dette ga meg et solid grunnlag i struktur, tydelig kommunikasjon og praktisk hundetrening.
-          </p>
-          <p>
-            Målet mitt er ikke bare lydighet, men å bygge et samarbeid der hunden forstår deg,
-            stoler på deg og ønsker å jobbe sammen med deg.
-          </p>
-        </div>
+<div class="banner">
+Maks 4 deltakere – gir roligere trening og bedre oppfølging
+</div>
 
-        <div>
-          <img src="bilder/ommeg.jpg" alt="Hundetrener med hund i rolig trening" />
-        </div>
-      </div>
-    </div>
-  </section>
+</section>
 
-  <section id="kurs" class="soft-section">
-    <div class="container">
-      <div class="section-title">
-        <h2>Valpekurs</h2>
-        <p>
-          Kurset legger grunnlaget for en trygg, oppmerksom og samarbeidsvillig hund.
-        </p>
-      </div>
+<section id="metode">
+<h2>Metoden min</h2>
 
-      <div class="card-grid">
-        <div class="card">
-          <h3>Kontakt og samarbeid</h3>
-          <p>
-            Valpen lærer å rette oppmerksomheten mot eier og forstå at samarbeid lønner seg.
-          </p>
-        </div>
+<div class="metode">
+<h3>Strukturert hundetrening</h3>
 
-        <div class="card">
-          <h3>Ro og trygghet</h3>
-          <p>
-            Vi trener ro, ikke kjefting. En valp som kan roe seg, lærer bedre og fungerer bedre i hverdagen.
-          </p>
-        </div>
+<p>
+Min tilnærming bygger på læringsteori og praktisk erfaring.
+Målet er en hund som fungerer i hverdagen.
+</p>
 
-        <div class="card">
-          <h3>Ja og nei</h3>
-          <p>
-            Valpen skal lære hva som er riktig, men også forstå tydelige og rolige grenser.
-          </p>
-        </div>
-      </div>
+<div class="quote">
+En god hund er ikke den som kan mest – men den som fungerer best i hverdagen
+</div>
 
-      <div class="grid-2" style="margin-top: 36px;">
-        <div>
-          <img src="bilder/valp.jpg" alt="Sort puddelvalp i rolig miljø" />
-        </div>
+<h3>Grunnprinsipper</h3>
+<ul>
+<li>Hunden lærer gjennom erfaring</li>
+<li>Riktig adferd skal være lett</li>
+<li>Feil adferd skal ikke lønne seg</li>
+<li>Ro må trenes</li>
+</ul>
 
-        <div class="info-box">
-          <h3>Små grupper med god oppfølging</h3>
-          <p>
-            Jeg ønsker små grupper med maks 4 deltakere. Det gir roligere trening,
-            bedre oppfølging og mer tid til hver enkelt hund og eier.
-          </p>
+<h3>Hva du kan forvente</h3>
+<ul>
+<li>Roligere hund</li>
+<li>Bedre kontakt</li>
+<li>Mindre stress</li>
+<li>Mer kontroll</li>
+</ul>
 
-          <ul class="feature-list">
-            <li>Maks 4 deltakere</li>
-            <li>Roligere miljø for valpen</li>
-            <li>Bedre individuell oppfølging</li>
-            <li>Mer kvalitet og trygghet</li>
-            <li>Mulighet for flere kurs ved behov</li>
-          </ul>
-        </div>
-      </div>
+</div>
 
-      <div class="small-banner">
-        Små grupper gir bedre læring, mindre stress og tryggere hunder.
-      </div>
-    </div>
-  </section>
+</section>
 
-  <section id="metode">
-    <div class="container">
-      <div class="section-title">
-        <h2>Metoden min</h2>
-        <p>
-          Strukturert hundetrening basert på læringsteori og praktisk erfaring.
-        </p>
-      </div>
+<section id="kontakt">
+<h2>Kontakt</h2>
 
-      <div class="method-layout">
-        <div class="method-panel">
-          <h3>Min tilnærming til hundetrening</h3>
-          <p>
-            Min tilnærming til hundetrening bygger på en kombinasjon av læringsteori og praktisk erfaring fra tradisjonell hundetrening.
-            Målet er ikke bare lydighet, men en hund som er rolig, trygg og fungerer i hverdagen.
-          </p>
+<div class="card" style="text-align:center;">
+<p>Tyristrand</p>
+<p>Adresse oppgis ved påmelding</p>
+<p><strong>greknuts@online.no</strong></p>
 
-          <div class="method-quote">
-            “En god hund er ikke den som kan mest – men den som fungerer best i hverdagen.”
-          </div>
+<a href="mailto:greknuts@online.no" class="btn">Send e-post</a>
+</div>
 
-          <div class="method-grid">
-            <div class="method-card">
-              <h4>Grunnprinsipper</h4>
-              <ul>
-                <li>Hunden lærer gjennom erfaring, ikke kommandoer alene</li>
-                <li>Riktig adferd skal være lett å gjøre</li>
-                <li>Feil adferd skal ikke lønne seg</li>
-                <li>Ro er en ferdighet som må trenes</li>
-              </ul>
-            </div>
+</section>
 
-            <div class="method-card">
-              <h4>Min måte å trene på</h4>
-              <ul>
-                <li>Tydelig førerrolle</li>
-                <li>Riktig timing</li>
-                <li>Konsekvent trening</li>
-                <li>Rolig og kontrollert oppbygging</li>
-              </ul>
-            </div>
-
-            <div class="method-card">
-              <h4>Faglig grunnlag</h4>
-              <ul>
-                <li>Klassisk betinging (assosiasjon)</li>
-                <li>Læring gjennom konsekvens</li>
-                <li>Naturlig adferd og instinkt</li>
-              </ul>
-            </div>
-
-            <div class="method-card">
-              <h4>Hva jeg ikke gjør</h4>
-              <ul>
-                <li>Lar hunden styre treningen</li>
-                <li>Overøser med kommandoer uten mening</li>
-                <li>Trener kun med lokking og håp</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="method-card" style="margin-top: 22px;">
-            <h4>Hva du kan forvente</h4>
-            <ul>
-              <li>En roligere hund</li>
-              <li>Bedre kontakt mellom deg og hunden</li>
-              <li>Mindre bjeffing og stress</li>
-              <li>Mer kontroll i hverdagen</li>
-            </ul>
-          </div>
-
-          <div class="method-image">
-            <img src="bilder/metode.jpg" alt="Hund i rolig og strukturert trening med fokus på eier" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="videre" class="accent-section">
-    <div class="container">
-      <div class="section-title">
-        <h2>Videre kurs</h2>
-        <p>
-          Nye kurs kan settes opp senere, og innhold planlegges fortløpende.
-        </p>
-      </div>
-
-      <div class="grid-2">
-        <div>
-          <img src="bilder/sok.jpg" alt="Hund i søksarbeid ute" />
-        </div>
-
-        <div class="text-box">
-          <span class="highlight">Interesse for søksarbeid</span>
-          <h3>Grunnlaget kommer først</h3>
-          <p>
-            Jeg er selv veldig interessert i søksarbeid og ønsker å drive mer med dette.
-            Søk er spennende, nyttig og gir hunden en oppgave som bruker både hode og kropp.
-          </p>
-          <p>
-            Samtidig er det viktig å bygge riktig grunnmur først. Ved rundering og feltsøk
-            må hunden være lydig og ha et godt samarbeid med fører.
-          </p>
-          <p>
-            Derfor starter vi med kontakt, ro og grunnleggende forståelse. Når det er på plass,
-            kan senere kurs bygges videre med mer selvstendig arbeid.
-          </p>
-        </div>
-      </div>
-
-      <div class="quote-box">
-        En god hund jobber ikke bare for belønning. Den jobber sammen med deg.
-      </div>
-    </div>
-  </section>
-
-  <section id="kontakt">
-    <div class="container">
-      <div class="section-title">
-        <h2>Kontakt og påmelding</h2>
-        <p>
-          Kurs holdes på Tyristrand. Full adresse oppgis ved påmelding.
-        </p>
-      </div>
-
-      <div class="contact-box">
-        <h3>Ta kontakt ved interesse</h3>
-        <p><strong>Sted:</strong> Tyristrand</p>
-        <p><strong>Adresse:</strong> Oppgis ved påmelding</p>
-        <p><strong>Gruppe:</strong> Maks 4 deltakere</p>
-        <p><strong>E-post:</strong> <a href="mailto:greknuts@online.no">greknuts@online.no</a></p>
-
-        <div class="buttons" style="justify-content: center; margin-top: 22px;">
-          <a class="btn btn-primary" href="mailto:greknuts@online.no?subject=Interesse%20for%20valpekurs">Send e-post</a>
-        </div>
-
-        <div class="small-note">
-          Få plasser. Ved stor interesse kan flere kurs settes opp.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © 2026 Valpekurs på Tyristrand | Trygg og tydelig hundetrening
-  </footer>
+<footer>
+Valpekurs Tyristrand
+</footer>
 
 </body>
 </html>
