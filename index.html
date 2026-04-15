@@ -18,7 +18,7 @@
       --text: #2e2b28;
       --muted: #645d56;
       --white: #ffffff;
-      --shadow: 0 12px 32px rgba(32, 38, 35, 0.10);
+      --shadow: 0 14px 34px rgba(32, 38, 35, 0.10);
       --radius: 24px;
     }
 
@@ -121,7 +121,7 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 720px;
+      max-width: 760px;
       padding: 80px 0 100px;
     }
 
@@ -146,7 +146,7 @@
 
     .hero p {
       font-size: 1.12rem;
-      max-width: 650px;
+      max-width: 680px;
       color: rgba(255,255,255,0.96);
       margin: 0 0 28px;
     }
@@ -237,7 +237,10 @@
     .card,
     .info-box,
     .contact-box,
-    .quote-box {
+    .quote-box,
+    .small-banner,
+    .method-panel,
+    .method-card {
       background: rgba(255,255,255,0.88);
       border: 1px solid rgba(38, 70, 63, 0.08);
       box-shadow: var(--shadow);
@@ -326,6 +329,95 @@
       margin-bottom: 14px;
     }
 
+    .small-banner {
+      margin-top: 28px;
+      padding: 22px 24px;
+      background: linear-gradient(135deg, #fff7e8, #f9e3bf);
+      color: #4d3c2d;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .method-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .method-panel {
+      padding: 34px;
+      background: linear-gradient(180deg, #fffefb 0%, #fff8ee 100%);
+    }
+
+    .method-panel h3 {
+      margin-top: 0;
+      color: var(--forest);
+      font-size: 1.8rem;
+    }
+
+    .method-panel p {
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-size: 1.04rem;
+    }
+
+    .method-quote {
+      margin: 18px 0 26px;
+      padding: 24px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #2f564d, #3b6a5f);
+      color: var(--white);
+      font-size: 1.18rem;
+      text-align: center;
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .method-card {
+      padding: 24px;
+      background: rgba(255,255,255,0.94);
+    }
+
+    .method-card h4 {
+      margin: 0 0 14px;
+      color: var(--forest);
+      font-size: 1.18rem;
+    }
+
+    .method-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .method-card li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 10px;
+      color: var(--muted);
+    }
+
+    .method-card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: -1px;
+      color: var(--clay);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .method-image {
+      margin-top: 26px;
+    }
+
     .quote-box {
       margin-top: 34px;
       padding: 38px;
@@ -337,7 +429,7 @@
     }
 
     .contact-box {
-      max-width: 800px;
+      max-width: 820px;
       margin: 0 auto;
       text-align: center;
       padding: 36px;
@@ -372,7 +464,8 @@
 
     @media (max-width: 960px) {
       .grid-2,
-      .card-grid {
+      .card-grid,
+      .method-grid {
         grid-template-columns: 1fr;
       }
 
@@ -403,6 +496,15 @@
       .logo {
         white-space: normal;
       }
+
+      .method-panel,
+      .method-card,
+      .card,
+      .info-box,
+      .contact-box,
+      .quote-box {
+        padding: 24px;
+      }
     }
   </style>
 </head>
@@ -414,7 +516,7 @@
       <nav class="nav-links">
         <a href="#om">Om meg</a>
         <a href="#kurs">Valpekurs</a>
-        <a href="#metode">Metode</a>
+        <a href="#metode">Metoden min</a>
         <a href="#videre">Videre kurs</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
@@ -424,7 +526,7 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="eyebrow">Små grupper • rolig trening • tydelig samarbeid</div>
+        <div class="eyebrow">Rolig trening • tydelig kommunikasjon • små grupper</div>
         <h1>Trygg og tydelig trening for valp og eier</h1>
         <p>
           På mine kurs bygger vi kontakt, ro og forståelse fra starten.
@@ -433,13 +535,13 @@
 
         <div class="hero-badges">
           <div class="badge">Maks 4 deltakere</div>
-          <div class="badge">Adresse oppgis ved påmelding</div>
           <div class="badge">Tyristrand</div>
+          <div class="badge">Adresse oppgis ved påmelding</div>
         </div>
 
         <div class="buttons">
           <a class="btn btn-primary" href="#kontakt">Meld interesse</a>
-          <a class="btn btn-secondary" href="#kurs">Les mer om kurset</a>
+          <a class="btn btn-secondary" href="#metode">Les om metoden</a>
         </div>
       </div>
     </div>
@@ -450,7 +552,7 @@
       <div class="section-title">
         <h2>Om meg</h2>
         <p>
-          Erfaring, tydelighet og ekte interesse for samarbeid mellom hund og eier.
+          Erfaring, ro og tydelighet i arbeidet med hund og eier.
         </p>
       </div>
 
@@ -517,7 +619,7 @@
         </div>
 
         <div class="info-box">
-          <h3>Små grupper gir bedre kvalitet</h3>
+          <h3>Små grupper med god oppfølging</h3>
           <p>
             Jeg ønsker små grupper med maks 4 deltakere. Det gir roligere trening,
             bedre oppfølging og mer tid til hver enkelt hund og eier.
@@ -526,11 +628,15 @@
           <ul class="feature-list">
             <li>Maks 4 deltakere</li>
             <li>Roligere miljø for valpen</li>
-            <li>Mer individuell oppfølging</li>
-            <li>Bedre kontroll og trygghet</li>
+            <li>Bedre individuell oppfølging</li>
+            <li>Mer kvalitet og trygghet</li>
             <li>Mulighet for flere kurs ved behov</li>
           </ul>
         </div>
+      </div>
+
+      <div class="small-banner">
+        Små grupper gir bedre læring, mindre stress og tryggere hunder.
       </div>
     </div>
   </section>
@@ -538,32 +644,77 @@
   <section id="metode">
     <div class="container">
       <div class="section-title">
-        <h2>Min metode</h2>
+        <h2>Metoden min</h2>
         <p>
-          Rolig, tydelig og praktisk hundetrening med fokus på forståelse fremfor stress.
+          Strukturert hundetrening basert på læringsteori og praktisk erfaring.
         </p>
       </div>
 
-      <div class="grid-2">
-        <div class="text-box">
-          <span class="highlight">Godbit i innlæring, ikke som krykke</span>
-          <h3>Hundens fokus skal være på deg</h3>
+      <div class="method-layout">
+        <div class="method-panel">
+          <h3>Min tilnærming til hundetrening</h3>
           <p>
-            På mine kurs bruker vi godbit til innlæring, men ikke som grunnlag for all trening.
-            Dette gjør at hunden lærer øvelsen uten å bli avhengig av mat i hånden eller lomma.
+            Min tilnærming til hundetrening bygger på en kombinasjon av læringsteori og praktisk erfaring fra tradisjonell hundetrening.
+            Målet er ikke bare lydighet, men en hund som er rolig, trygg og fungerer i hverdagen.
           </p>
-          <p>
-            Målet er en hund som følger med på eier, ikke på godbiten. Vi bygger forståelse,
-            ro og tydelig kommunikasjon slik at samarbeidet holder også når du ikke har noe i hånden.
-          </p>
-          <p>
-            På valpekurs bruker vi godbit og trener ro, ikke kjefting. Valpen skal lære både ja og nei,
-            på en trygg og forståelig måte.
-          </p>
-        </div>
 
-        <div>
-          <img src="bilder/metode.jpg" alt="Hund i rolig trening med fokus på eier" />
+          <div class="method-quote">
+            “En god hund er ikke den som kan mest – men den som fungerer best i hverdagen.”
+          </div>
+
+          <div class="method-grid">
+            <div class="method-card">
+              <h4>Grunnprinsipper</h4>
+              <ul>
+                <li>Hunden lærer gjennom erfaring, ikke kommandoer alene</li>
+                <li>Riktig adferd skal være lett å gjøre</li>
+                <li>Feil adferd skal ikke lønne seg</li>
+                <li>Ro er en ferdighet som må trenes</li>
+              </ul>
+            </div>
+
+            <div class="method-card">
+              <h4>Min måte å trene på</h4>
+              <ul>
+                <li>Tydelig førerrolle</li>
+                <li>Riktig timing</li>
+                <li>Konsekvent trening</li>
+                <li>Rolig og kontrollert oppbygging</li>
+              </ul>
+            </div>
+
+            <div class="method-card">
+              <h4>Faglig grunnlag</h4>
+              <ul>
+                <li>Klassisk betinging (assosiasjon)</li>
+                <li>Læring gjennom konsekvens</li>
+                <li>Naturlig adferd og instinkt</li>
+              </ul>
+            </div>
+
+            <div class="method-card">
+              <h4>Hva jeg ikke gjør</h4>
+              <ul>
+                <li>Lar hunden styre treningen</li>
+                <li>Overøser med kommandoer uten mening</li>
+                <li>Trener kun med lokking og håp</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="method-card" style="margin-top: 22px;">
+            <h4>Hva du kan forvente</h4>
+            <ul>
+              <li>En roligere hund</li>
+              <li>Bedre kontakt mellom deg og hunden</li>
+              <li>Mindre bjeffing og stress</li>
+              <li>Mer kontroll i hverdagen</li>
+            </ul>
+          </div>
+
+          <div class="method-image">
+            <img src="bilder/metode.jpg" alt="Hund i rolig og strukturert trening med fokus på eier" />
+          </div>
         </div>
       </div>
     </div>
